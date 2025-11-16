@@ -4,6 +4,7 @@
   imports = [
     ./app/helix/helix.nix  
     ./app/yazi.nix
+    ./app/rofi.nix
   ];
   
   home.username = "ligero";

@@ -26,7 +26,7 @@ in
     # This will copy the entire repo to yazi/flavors/tokyonight.yazi
     flavors.tokyonight = tokyonightRepo;
 
-    # Set hx ad the default editor
+    # Set hx as the default editor
     settings.opener = {
       edit = [
         { run = "hx \"$@\""; desc = "hx"; block = true; for = "unix"; }
