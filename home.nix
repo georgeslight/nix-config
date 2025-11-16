@@ -3,6 +3,7 @@
 {
   imports = [
     ./app/helix/helix.nix  
+    ./app/yazi.nix
   ];
   
   home.username = "ligero";

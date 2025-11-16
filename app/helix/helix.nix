@@ -11,6 +11,12 @@
     ./languages.nix
   ];
 
+  programs.helix = {
+    enable = true;
+    package = inputs.helix.packages.${pkgs.system}.default;
+    # package = pkgs-unstable.helix;
+  };
+  
   home.packages = [
     # Go
     pkgs.gopls # Language Server
@@ -23,10 +29,4 @@
     pkgs.alejandra
     pkgs.nixfmt-rfc-style
   ];
-
-  programs.helix = {
-    enable = true;
-    package = inputs.helix.packages.${pkgs.system}.default;
-    # package = pkgs-unstable.helix;
-  };
 }

@@ -1,19 +1,37 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{
+  config,
+  pkgs,
+  pkgs-unstable,
+  ...
+}:
 
+let
+  tokyonightRepo = pkgs.fetchFromGitHub {
+    owner = "mingo99";
+    repo = "tokyonight.yazi";
+    rev = "main";
+    hash = "sha256-aTB4hh/aRb06wzD9C4rD9tahZo9kjkHwR25e8XcZixo=";
+  };
+in
 {
   programs.yazi = {
     enable = true;
-    packags = pkgs-unstable.yazi;   
+    package = pkgs-unstable.yazi;
 
     settings = {
-      flavor = "tokyonight";
+      theme = {
+        flavor.dark = "tokyonight";
+      };
     };
+    # This will copy the entire repo to yazi/flavors/tokyonight.yazi
+    flavors.tokyonight = tokyonightRepo;
 
-    flavors = {
-      tokyonight = builtins.readFile (pkgs.fetchurl {
-        url = "https://github.com/mingo99/tokyonight.yazi/blob/main/flavor.toml";
-        hash = "sha256-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=";
-      });
+    # Set hx ad the default editor
+    settings.opener = {
+      edit = [
+        { run = "hx \"$@\""; desc = "hx"; block = true; for = "unix"; }
+        { run = "$EDITOR \"$@\""; desc = "$EDITOR"; block = true; for = "unix"; }
+      ];
     };
   };
 }
