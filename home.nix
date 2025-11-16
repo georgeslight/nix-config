@@ -5,6 +5,7 @@
     ./app/helix/helix.nix  
     ./app/yazi.nix
     ./app/rofi.nix
+    ./app/dunst.nix
   ];
   
   home.username = "ligero";
