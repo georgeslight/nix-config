@@ -8,12 +8,12 @@
 
 {
   imports = [
-    ./app/zsh/zsh.nix
-    ./app/helix/helix.nix
-    ./app/yazi.nix
-    ./app/rofi.nix
-    ./app/dunst.nix
-    ./app/gtk.nix
+    ./modules/zsh/zsh.nix
+    ./modules/helix/helix.nix
+    ./modules/yazi.nix
+    ./modules/rofi.nix
+    ./modules/dunst.nix
+    ./modules/gtk.nix
   ];
 
   home.username = "ligero";

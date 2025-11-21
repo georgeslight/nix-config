@@ -60,7 +60,7 @@
         modules = [
           nixos-wsl.nixosModules.wsl
           home-manager.nixosModules.home-manager
-          ./wsl/wsl.nix
+          ./hosts/wsl.nix
         ];
       };
     };

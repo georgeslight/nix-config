@@ -8,8 +8,8 @@
 
 {
   imports = [
-    ./app/helix/helix.nix
-    ./app/yazi.nix
+    ./modules/helix/helix.nix
+    ./modules/yazi.nix
   ];
 
   home.username = "ligero";
