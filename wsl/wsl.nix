@@ -14,9 +14,6 @@
     # Creates Windows Start Menu shortcuts for GUI applications installed in WSL.
     startMenuLaunchers = true;
 
-    # Sets up Docker to run natively inside WSL 2 without needing Docker Desktop.
-    # docker-native.enable = true;
-
     # Changes the default mount point for Windows drives from /mnt/c, /mnt/d, etc. to just /c, /d, etc.
     wslConf.automount.root = "/mnt";
 
