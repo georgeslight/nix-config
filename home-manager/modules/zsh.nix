@@ -50,6 +50,7 @@
       TODO = "rg -p TODO | bat";
       ihx = "hx $(fzf --preview='bat --color=always {}')";
       y = "yazi";
+      ".." = "cd ..";
     };
   };
 
