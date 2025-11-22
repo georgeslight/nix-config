@@ -2,18 +2,17 @@
   description = "Home Manager configuration of ligero";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # helix editor, master branch
-    helix.url = "github:helix-editor/helix/master";
+    helix.url = "github:helix-editor/helix/master"; # helix editor, master branch
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/release-25.05";
     };
+    hyprdynamicmonitors.url = "github:fiffeek/hyprdynamicmonitors";
   };
 
   outputs =
@@ -22,6 +21,7 @@
       nixpkgs-unstable,
       home-manager,
       nixos-wsl,
+      hyprdynamicmonitors,
       ...
     }:
     let
@@ -37,12 +37,12 @@
       homeConfigurations."ligero" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
-          inherit inputs;
-          inherit pkgs-unstable;
+          inherit inputs pkgs-unstable system;
         };
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [
+          inputs.hyprdynamicmonitors.homeManagerModules.default
           ./home-manager/home.nix
         ];
 
